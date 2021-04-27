@@ -27,7 +27,7 @@ public class Product {
     @Column(name = "unit_price")
     private BigDecimal unitPrice;
     @Column(name = "image_url")
-    private String imageURL;
+    private String imageUrl;
     @Column(name = "active")
     private boolean active;
     @Column(name = "units_in_stock")
@@ -48,7 +48,7 @@ public class Product {
         this.name = name;
         this.description = description;
         this.unitPrice = unitPrice;
-        this.imageURL = imageURL;
+        this.imageUrl = imageUrl;
         this.active = active;
         this.unitsInStock = unitsInStock;
         this.dateCreated = dateCreated;
@@ -103,12 +103,12 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+        this.imageUrl = imageUrl;
     }
 
     public boolean isActive() {

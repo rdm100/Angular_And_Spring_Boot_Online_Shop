@@ -28,4 +28,4 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         cors.addMapping("/api/**").allowedOrigins("http://localhost:4200");
     }
-}
+} 
