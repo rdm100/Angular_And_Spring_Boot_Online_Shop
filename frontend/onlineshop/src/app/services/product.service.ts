@@ -8,13 +8,15 @@ import { Product } from '../common/product';
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:8080/api/products?size=50';
+  private baseUrl = 'http://localhost:8080/api/products';
 
   constructor(private httpClient: HttpClient) { }
 
   getProductList(theCategoryId: number): Observable<Product[]> {
-    //still to build spring boot URL based on category id
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+    // build spring boot URL based on category id
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
+    
+    return this.httpClient.get<GetResponse>(searchUrl).pipe(
        map(response => response._embedded.products)
     );
   }
