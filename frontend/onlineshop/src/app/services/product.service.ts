@@ -18,10 +18,11 @@ export class ProductService {
     
     return this.httpClient.get<GetResponse>(searchUrl).pipe(
        map(response => response._embedded.products)
+       //map the REST API JSON results to an array of Product objects in TypeScript products.
     );
   }
 }
-//map the REST API JSON results to an array of Product objects in TypeScript.
+//unwraps the JSON from spring data rest _embedded entry 
 interface GetResponse {
   _embedded: {
     products: Product[];
