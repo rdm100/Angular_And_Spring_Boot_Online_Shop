@@ -46,7 +46,7 @@ button{
 
 img{
   max-width:100%;
-  height:auto
+  height:180px;
 }
 
 p{
@@ -324,6 +324,9 @@ input.au-input.au-input-xl{
   overflow-y:auto
 }
 
+#logo{
+  height: auto;
+}
 .menu-sidebar .logo{
   background:#fff;
   height:75px;
@@ -975,7 +978,7 @@ footer ul li{
       text-align:center
   }
   .product-box{
-      text-align:centerg
+      text-align:center;
   }
   .page-container{
       position:relative;
