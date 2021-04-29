@@ -46,7 +46,7 @@ button{
 
 img{
   max-width:100%;
-  height:180px;
+  height:auto;
 }
 
 p{
@@ -724,7 +724,11 @@ table.table.table-bordered th{
   color:#0da8e4
 }
 .detail-section{
-  margin-top:60px
+  margin-top:90px
+}
+
+.detail-img{
+  width: 20%;
 }
 /**/
 

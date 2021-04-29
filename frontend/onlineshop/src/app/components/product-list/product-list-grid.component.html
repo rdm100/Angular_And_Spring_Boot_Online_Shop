@@ -3,16 +3,16 @@
     <h4>Category: {{ currentCategoryName }}</h4>
     <hr>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row align-items-end">
         <!-- loop over the collection of products -->
         <div *ngFor="let tempProduct of products" class="col-md-3">
           <div class="product-box">
             <a routerLink="/products/{{ tempProduct.id }}">
               <img class="img-responsive" src="{{ tempProduct.imageUrl }}" />
             </a>
-            <a routerLink="/product/{{ tempProduct.id }}">
-              <h1>{{ tempProduct.name }}</h1>
-            </a>
+            <h1>
+              <a routerLink="/product/{{ tempProduct.id }}">{{ tempProduct.name }}</a>
+            </h1>
             <div class="price">{{ tempProduct.unitPrice | currency:'GBP' }}</div>
             <a href="#" class="btn btn-info">Add to cart</a>
           </div>
