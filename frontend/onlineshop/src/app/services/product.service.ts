@@ -10,10 +10,7 @@ import { ThisReceiver } from '@angular/compiler';
   providedIn: 'root'
 })
 export class ProductService {
-  getProduct(theProductId: number) {
-    throw new Error('Method not implemented.');
-  }
-
+  
   private baseUrl = 'http://localhost:8080/api/products';
 
   private categoryUrl = 'http://localhost:8080/api/product-category';
@@ -46,6 +43,13 @@ export class ProductService {
       map(response => response._embedded.products)
     );
   }
+
+  getProduct(theProductId: number): Observable<Product> {
+    const productUrl = `${this.baseUrl}/${theProductId}`;
+    //Does not need to be converted here using an interface
+    return this.httpClient.get<Product>(productUrl);
+  }
+
 }
 //unwraps the JSON from spring data rest _embedded entry 
 interface GetResponseProducts {
