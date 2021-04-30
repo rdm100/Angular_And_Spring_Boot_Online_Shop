@@ -25,6 +25,13 @@ export class ProductService {
        //map the REST API JSON results to an array of Product objects in TypeScript products.
   }
 
+  getProductListPaginate(thePage: number, thePageSize: number, theCategoryId: number): Observable<GetResponseProducts> {
+    //url based on category ID, page and size
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}&page=${thePage}&size=${thePageSize}`;
+
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
+  }
+
   getProductCategories(): Observable<ProductCategory[]> {
     return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
       map(response => response._embedded.productCategory)
@@ -60,7 +67,7 @@ interface GetResponseProducts {
     size: number,
     totalElements: number,
     totalPages: number,
-    number: number 
+    number: number
   }
 }
 
@@ -68,3 +75,4 @@ interface GetResponseProductCategory {
   _embedded: {
    productCategory: ProductCategory[];
   }
+} 
