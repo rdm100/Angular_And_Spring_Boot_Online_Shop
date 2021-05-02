@@ -23,11 +23,11 @@
       <!-- Pagination Section -->
         <div class="footer-pagination">
           <div class="row">
-            <div class="col-md-6"></div>
+            <!-- <div class="col-md-6"></div> -->
 
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-md-9" style="padding-left: 30%">
+            <div class="col-md-12">
+              <div class="row justify-content-center">
+                <div class="justify-content-center" style="">
 
                   <ngb-pagination [(page)]="thePageNumber"
                                   [pageSize]="thePageSize"
@@ -37,6 +37,20 @@
                   </ngb-pagination>
 
                 </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row justify-content-end">
+              <div class="col-md-4 text-right" style="">
+              <span class="mr-2">Page size</span>
+              <select (change)="updatePageSize($event.target.value)">
+                <option selected="true">5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+              </select>
               </div>
             </div>
           </div>
