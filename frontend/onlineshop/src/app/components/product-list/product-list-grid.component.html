@@ -14,7 +14,7 @@
               <a routerLink="/product/{{ tempProduct.id }}">{{ tempProduct.name }}</a>
             </h1>
             <div class="price">{{ tempProduct.unitPrice | currency:'GBP' }}</div>
-            <a href="#" class="btn btn-info">Add to cart</a>
+            <button (click)="addToCart(tempProduct)" class="btn btn-info" >Add to cart</button>
           </div>
         </div>
         <!-- If no products are returned display a message to the user -->
@@ -45,7 +45,7 @@
           </div>
           <div class="container">
             <div class="row justify-content-end">
-              <div class="col-md-4 text-right" style="">
+              <div class="col-md-4 text-right">
               <span class="mr-2">Page size</span>
               <select (change)="updatePageSize($event.target.value)">
                 <option>2</option>
