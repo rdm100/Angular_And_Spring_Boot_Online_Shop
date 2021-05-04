@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/common/product';
@@ -108,5 +107,11 @@ export class ProductListComponent implements OnInit {
     this.thePageSize = pageSize;
     this.thePageNumber = 1;
     this.listProducts();
+  }
+
+  addToCart(theProduct: Product) {
+    console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
+
+    
   }
 }
