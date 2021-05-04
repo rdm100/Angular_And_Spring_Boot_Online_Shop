@@ -57,19 +57,19 @@ export class CartService {
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
 
-    logCartData(totalPriceValue, totalQuantityValue);
-  }
-}
-function logCartData(totalPriceValue: number, totalQuantityValue: number) {
-  console.log('contents of the cart ');
-
-  for (const tempCartItem of this.cartItems) {
-    const subtotalPrice = tempCartItem.quantity * tempCartItem.price;
-    console.log(`name: ${tempCartItem.name}, quantity: ${tempCartItem.quantity},
-     unitPrice: ${tempCartItem.unitPrice}, subtotalPrice: ${subtotalPrice}`);
+    this.logCartData(totalPriceValue, totalQuantityValue);
   }
 
-  console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
-  console.log('------------------------------------------------');
+  logCartData(totalPriceValue: number, totalQuantityValue: number) {
+    console.log('contents of the cart ');
+  
+    for (const tempCartItem of this.cartItems) {
+      const subtotalPrice = tempCartItem.quantity * tempCartItem.unitPrice;
+      console.log(`name: ${tempCartItem.name}, quantity: ${tempCartItem.quantity},
+       unitPrice: ${tempCartItem.unitPrice}, subtotalPrice: ${subtotalPrice}`);
+    }
+  
+    console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
+    console.log('------------------------------------------------');
+  }
 }
-
