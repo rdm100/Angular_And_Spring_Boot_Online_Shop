@@ -83,4 +83,9 @@ export class CartService {
       this.calculateCartTotals();
     }
   }
+
+  remove(theCartItem: CartItem) {
+    this.cartItems = this.cartItems.filter(cartItem => cartItem.id != theCartItem.id);
+    this.calculateCartTotals();
+  }
 }
