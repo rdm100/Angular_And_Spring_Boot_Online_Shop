@@ -6,6 +6,9 @@ import { CartItem } from '../common/cart-item';
   providedIn: 'root'
 })
 export class CartService {
+  decrementQuantity(cartItem: any) {
+    throw new Error('Method not implemented.');
+  }
   cartItems: CartItem[] = [];
 
   totalPrice: Subject<number> = new Subject<number>();
