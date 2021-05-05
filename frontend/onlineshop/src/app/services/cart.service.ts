@@ -6,9 +6,7 @@ import { CartItem } from '../common/cart-item';
   providedIn: 'root'
 })
 export class CartService {
-  decrementQuantity(cartItem: any) {
-    throw new Error('Method not implemented.');
-  }
+
   cartItems: CartItem[] = [];
 
   totalPrice: Subject<number> = new Subject<number>();
@@ -69,5 +67,20 @@ export class CartService {
   
     console.log(`totalPrice: ${totalPriceValue.toFixed(2)}, totalQuantity: ${totalQuantityValue}`);
     console.log('------------------------------------------------');
+  }
+
+  decrementQuantity(theCartItem: CartItem) {
+    theCartItem.quantity--;
+
+    if (theCartItem.quantity === 0) {
+      this.cartItems = this.cartItems.filter(cartItem => cartItem.id != theCartItem.id);
+      // const itemIndex = this.cartItems.findIndex(cartItem => cartItem.id === theCartItem.id);
+      // if (itemIndex > -1) {
+      //   this.cartItems.splice(itemIndex, 1);
+      // }
+      this.calculateCartTotals();
+    } else {
+      this.calculateCartTotals();
+    }
   }
 }
